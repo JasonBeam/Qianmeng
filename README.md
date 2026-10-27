@@ -31,5 +31,6 @@
 - `docs/PROJECT-STATUS.md`：当前完成情况和未通过项。
 - `docs/DEVELOPMENT-LOG.md`：脱敏后的工程记录摘要。
 - `docs/CONTRIBUTING.md`：构建、贡献和证据边界。
+- `docs/AI-CONTRIBUTOR-GUIDE-zh-CN.md`：面向新贡献者的 AI 协作开发教程。
 - `docs/RECOGNITION-ARCHITECTURE-DRAFT.md`：后续识别系统的草案；尚未实现。
 - `third-party/notices`：第三方许可证与署名信息。
