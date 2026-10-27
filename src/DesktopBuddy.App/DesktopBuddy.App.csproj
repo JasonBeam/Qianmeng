@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType><StartupObject>DesktopBuddy.EntryPoint</StartupObject>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <AssemblyName>DesktopBuddy</AssemblyName>
+    <RootNamespace>DesktopBuddy</RootNamespace>
+    <Version>0.5.13</Version>
+    <AssemblyVersion>0.5.13.0</AssemblyVersion>
+    <FileVersion>0.5.13.0</FileVersion>
+    <Product>DesktopBuddy</Product>
+    <Company>DesktopBuddy</Company>
+    <Description>Windows desktop companion and local system assistant</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="../../assets/models/local-default.glb" Condition="Exists('../../assets/models/local-default.glb')" Link="models/default-companion.glb" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <Content Include="../../third-party/gltfpack/gltfpack.exe" Link="tools/gltfpack.exe" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <EmbeddedResource Include="app.ico" LogicalName="DesktopBuddy.TrayIcon" />
+    <Content Include="../../third-party/notices/**/*" Link="licenses/%(RecursiveDir)%(Filename)%(Extension)" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <ProjectReference Include="../DesktopBuddy.ModelCore/DesktopBuddy.ModelCore.csproj" />
+  </ItemGroup>
+</Project>

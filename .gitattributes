@@ -1,0 +1,10 @@
+* text=auto
+*.cs text eol=lf
+*.xaml text eol=lf
+*.csproj text eol=lf
+*.sln text eol=lf
+*.sh text eol=lf
+*.ps1 text eol=crlf
+*.nsi text eol=crlf
+*.glb binary
+*.ico binary

@@ -1,0 +1,15 @@
+**/bin/
+**/obj/
+/dist/
+/outputs/
+/reports/
+/work/
+*.bak
+*.user
+*.suo
+.DS_Store
+/assets/models/source/
+/assets/models/local-default.glb
+/windows-checks*.png
+/windows-checks*.json
+/windows-checks-soak-*.log

@@ -1,0 +1,49 @@
+<Window x:Class="DesktopBuddy.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="clr-namespace:DesktopBuddy.UI"
+        Title="DesktopBuddy.Pet" Width="190" Height="220"
+        WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        Background="Transparent" ShowInTaskbar="False" Topmost="True" ShowActivated="False">
+  <Window.ContextMenu>
+    <ContextMenu>
+      <MenuItem Header="打开控制中心" Click="OpenControlCenter_Click" />
+      <MenuItem Header="替换模型…" Click="OpenModels_Click" />
+      <MenuItem Header="切换点击穿透" Click="ToggleClickThrough_Click" />
+      <MenuItem Header="隐私模式" Click="TogglePrivacy_Click" />
+      <Separator />
+      <MenuItem Header="隐藏到托盘" Click="HideToTray_Click" />
+      <MenuItem Header="退出桌伴" Click="Exit_Click" />
+    </ContextMenu>
+  </Window.ContextMenu>
+  <Grid x:Name="RootGrid"
+        MouseLeftButtonDown="RootGrid_MouseLeftButtonDown"
+        MouseMove="RootGrid_MouseMove"
+        MouseLeftButtonUp="RootGrid_MouseLeftButtonUp"
+        LostMouseCapture="RootGrid_LostMouseCapture">
+    <StackPanel x:Name="PetContent" Margin="12" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <Grid x:Name="PetStage" Width="150" Height="145">
+          <ui:PetModelView x:Name="PetModel" Visibility="Collapsed" />
+          <ui:PetFallbackView x:Name="DefaultPet" Width="110" Height="135" HorizontalAlignment="Center" VerticalAlignment="Center"
+                              Visibility="{Binding ElementName=PetEmoji, Path=Visibility}">
+            <Ellipse Width="76" Height="76" Fill="#E6202B40" Stroke="#88FFFFFF" StrokeThickness="1" Canvas.Left="17" Canvas.Top="25" />
+            <Path Data="M 65,40 C 38,40 30,77 57,90 C 37,89 27,77 30,61 C 33,45 48,36 65,40 Z" Fill="#F2E8CB" />
+            <ui:PetGlyph x:Name="PetEmoji" Text="🐧" FontSize="20" Canvas.Left="85" Canvas.Top="4" FontFamily="Segoe UI Emoji" Foreground="#365F7F">
+              <ui:PetGlyph.Style><Style TargetType="ui:PetGlyph"><Style.Triggers><Trigger Property="Text" Value="🐧"><Setter Property="Opacity" Value="0" /></Trigger></Style.Triggers></Style></ui:PetGlyph.Style>
+            </ui:PetGlyph>
+          </ui:PetFallbackView>
+        </Grid>
+        <Border x:Name="PetCaption" Background="#E61B2433" BorderBrush="#80FFFFFF" BorderThickness="1"
+                CornerRadius="10" Padding="10,5" Margin="0,3,0,0" HorizontalAlignment="Center" MaxWidth="185">
+          <StackPanel TextElement.FontFamily="Microsoft YaHei UI, Segoe UI">
+            <TextBlock x:Name="PetNameText" Text="浅梦" Foreground="#FFFFFF" FontSize="14"
+                       FontWeight="SemiBold" HorizontalAlignment="Center" Margin="0,0,0,2" MaxWidth="155" TextTrimming="CharacterEllipsis" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" />
+            <TextBlock x:Name="PetStatusText" Text="准备好陪你" Foreground="#F0F3FA" FontSize="11"
+                       TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Center"
+                       MaxWidth="155" MinHeight="14" MaxHeight="28" LineHeight="14" LineStackingStrategy="BlockLineHeight" TextTrimming="CharacterEllipsis" />
+          </StackPanel>
+        </Border>
+      </StackPanel>
+
+  </Grid>
+</Window>
